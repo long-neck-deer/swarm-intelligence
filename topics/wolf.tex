@@ -64,7 +64,7 @@
 		\begin{equation}
 		\vec{C}=2 \cdot \vec{r}_2
 		\end{equation}
-		其中，$\vec{a}$取值在0和2之间，且在迭代过程中逐渐变小，$\vec{r}_1$和$vec{r}_2$是取值在$[0,1]$之间的随机向量。
+		其中，$\vec{a}$取值在0和2之间，且在迭代过程中逐渐变小，$\vec{r}_1$和$\vec{r}_2$是取值在$[0,1]$之间的随机向量。
 	\column{.5\textwidth}
 		\begin{figure}[htbp]
 			\centering
@@ -149,6 +149,68 @@
 			\STATE{return $X_{\alpha}$}
 		\end{algorithmic}
 	\end{algorithm}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Benchmark-unimodal}
+	\begin{table}[]
+	\centering
+	\caption{unimodal functions}
+	\label{wolf_table1}
+	\begin{tabular}{lccc}
+	\hline
+	function & dim & range & $f_{min}$ \\ \hline \hline
+	$f_1(x)=\sum_{i=1}^{n}x_i^2$ & 30 &  [-100,100]  & 0  \\ \hline
+	$f_2(x)=\sum_{i=1}^{n}|x_i|+\prod_{i=1}^{n}|x_i|$ & 30 & [-10,10] & 0 \\ \hline
+	$f_3(x)=\sum_{i=1}^{n}(\sum_{j-1}^{i} x_j)^2$ & 30  & [-100,100] &  0 \\ \hline
+	$f_4(x)=max_i\{|x_i|,1 \leq i\leq n\}$ & 30 & [-100,100] &  0 \\ \hline
+	$f_5(x)=\sum_{i=1}^{n-1}[100(x_{i+1}-x_i^2)^2+(x_i-1)^2]$ & 30 & [-30,30] &  0 \\ \hline
+	\end{tabular}
+	\end{table}
+\end{frame}
+
+
+\begin{frame}
+	\frametitle{Benchmark-multimodal}
+	\begin{table}[]
+	\centering
+	\caption{multimodal functions}
+	\label{wolf_table2}
+	\begin{tabular}{p{8cm}lccc}  
+	\hline
+	function & dim & range & $f_{min}$ \\ \hline \hline
+	$f_6(x)=\sum_{i=1}^{n} -x_i \sin (\sqrt{|x_i|})$ & 30 &  [-500,500]  & $-418.9829 \times 5$ \\ \hline
+	$f_7(x)=\sum_{i=1}^{n}[x_i^2-10\cos (2 \pi x_i)+10]$ & 30 & [-5.12,5.12] & 0 \\ \hline
+	$f_8(x)=-20\exp{\left(-0.2\sqrt{\frac{1}{2}\sum_{i=1}^{n}x_i^2}\right)}- \exp{\left(\frac{1}{n}\sum_{i=1}^{n}\cos(2\pi x_i)\right)+20+e}$ & 30  & [-32,32] &  0 \\ \hline
+	$f_9(x)=\frac{1}{4000}\sum_{i=1}{n}x_1^2-\prod_{i=1}^{n}\cos\left(\frac{x_1}{\sqrt{i}} \right)+1 $ & 30 & [-600,600] &  0 \\ \hline
+	$f_{10}(x)=\frac{\pi}{n}\{10\sin(\pi y_i)+\sum_{i=1}^{n-1}(y_i-1)^2  [1+10{\sin}^2(\pi y_{i+1})]+(y_n-1)^2\}+\sum_{i=1}^{n}u(x_i,10,100,4) $ & 30 & [-50,50] &  0 \\ \hline
+	\end{tabular}
+	\end{table}
+\end{frame}
+
+
+
+\begin{frame}
+	\frametitle{实验结果}
+	\begin{table}[]
+	\centering
+	\caption{GWO与PSO对比}
+	\label{wolf_table3}
+	\begin{tabular}{cccccc}
+	\multirow{2}{*}{function} & \multirow{2}{*}{min} & \multicolumn{2}{c}{GWO} & \multicolumn{2}{c}{PSO} \\ \cline{3-6} 
+	                          &                      & ave        & std        & ave        & std        \\ \hline
+	F1                        & 0                    & 6.59e-28   & 6.34e-05   & 1.36e-04   & 2.02e-04   \\
+	F2                        & 0                    & 7.18e-17   & 0.029      & 4.21e-02   & 0.045      \\
+	F3                        & 0                    & 3.29e-06   & 79.149     & 70.125     & 22.119     \\
+	F4                        & 0                    & 5.61e-07   & 1.315      & 1.086      & 0.317      \\
+	F5                        & 0                    & 26.81258   & 69.904     & 96.718     & 60.116     \\
+	F6                        & -2094.91             & -6123.1    & -4087.44   & -4841.3    & 1152.814   \\
+	F7                        & 0                    & 0.310      & 47.356     & 46.704     & 11.629     \\
+	F8                        & 0                    & 1.06e-13   & 0.078      & 0.276      & 0.509      \\
+	F9                        & 0                    & 0.004      & 0.007      & 0.009      & 0.008      \\
+	F10                       & 0                    & 0.053      & 0.020      & 0.007      & 0.026     
+	\end{tabular}
+	\end{table}
 \end{frame}
 
 
