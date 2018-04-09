@@ -57,18 +57,9 @@
 \tableofcontents
 \end{frame}				%生成提纲页
 
-\section{群算法聚介绍}
-\begin{frame}
-  \frametitle{简介}
-	 \begin{enumerate}
-	    \item what
-	    \item where
-	    \item how
-	    \item 。。。
-	  \end{enumerate}
-\end{frame}
 
-
+\section{SI背景介绍}
+\input{topics/introduction.tex}
 
 \section{蚁群算法}
 \input{topics/ant.tex}
@@ -90,23 +81,9 @@
 
 \section{结论}
 \begin{frame}
-  \frametitle{结论}
-
-  \begin{itemize}
-    \item Easy to use
-    \item Good results
-  \end{itemize}
+  \frametitle{群智能特点}
+  $\qquad$群体中相互合作的个体是分布式的(Distributed)，这样更能够适应当前网络环境下的工作状态; 没有中心的控制与数据，这样的系统更具有鲁棒性(Robust)，不会由于某一个或者某几个个体的故障而影响整个问题的求解。可以不通过个体之间直接通信而是通过非直接通信(Stimergy)进行合作，这样的系统具有更好的可扩充性(Scalability)。由于系统中个体的增加而增加的系统的通信开销在这里十分小。系统中每个个体的能力十分简单，这样每个个体的执行时间比较短，并且实现也比较简单，具有简单性(Simplicity)。因为具有这些优点，虽说群集智能的研究还处于初级阶段，并且存在许多困难，但是可以预言群集智能的研究代表了以后计算机研究发展的一个重要方向。
 \end{frame}
 
-
-\section{参考文献}
-\begin{frame}{参考文献}
-\begin{thebibliography}{99} 
-\bibitem{zhao1} Yi~Zhao, {\sl An introduction to X}, Sep.~15, 2015
-\bibitem{qian2} Er~Qian, San~Sun, 
-Phys.\ Lett.\ A {\bf xx}, 2xx (20xx)   
-\bibitem{li4} Si~Li, Phys.\ Rev.\ C {\bf xx}, 5xx (20xx) 
-\end{thebibliography}
-\end{frame}
 
 \end{document}
