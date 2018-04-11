@@ -15,7 +15,6 @@
 	\frametitle{自然界的蜂群}
 	\begin{columns}
 	\column{.4\textwidth}
-		\section{觅食行为}
 		\begin{itemize}
 			\item { 3个基本要素}
 				\begin{itemize}
@@ -231,7 +230,6 @@
 
 \begin{frame}
 	\frametitle{Application:TSP问题}
-	\section {TSP问题}
 	\begin{columns}
 	\column{.6\textwidth}
 	\qquad 给定N个城市 $C=(C_{1},C_{2}...C_{N})$，求一条从一个城市出发拜访N个所有城市的道路 $(C_{n1},C_{n2}...C_{nN})$，且每个城市有且仅能访问一次，最终回到开始的城市，其中任意两个城市的距离为d(Ci,Cj)，使得求得的路径距离最小。
@@ -246,7 +244,6 @@
 
 \begin{frame}
 	\frametitle{TSP问题}
-	\section {ABC算法应用}
 	\begin{columns}
 	\column{.6\textwidth}
 	\qquad 所有城市的任一种排列即是问题的一个解，因此初始解空间就是N个城市的排列组合。在人工蜂群算法中，将城市个数N作为解空间的维度，每一个蜜源的位置表示其中一个路径的组合，用这条路径的距离长度表示蜜源的适应度，也就是说，适应度越小的蜜源，所表示的路径也就最优。\\
