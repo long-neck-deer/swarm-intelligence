@@ -183,14 +183,24 @@
 	\end{itemize}
 \end{frame}
 \begin{frame}
-	\frametitle{算法应用}	
-	\begin{itemize}
-		\item{组合优化问题}
-		\item{计算实例}
-		\item{算法改进}
-		\item{参数估计}
-		\item{系统辨识}
-	\end{itemize}
+	\frametitle{算法应用——旅行商问题}	
+	\small{数据来源：http://www.uni-heidelberg.de/iwr/comopt/software/TSPLIB95/;}
+	\begin{columns}
+	\column{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\textwidth]{pic/fish4.png}
+			\caption{Ulysses 22 城市TSP问题的寻优曲线}
+		\end{figure}
+	\column{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\textwidth]{pic/fish5.png}
+			\caption{Att48 城市TSP问题的寻优曲线}
+		\end{figure}
+	\end{columns}
+	\small{在仿真实验中，为了反映算法对组合优化问题的解决能力，没有针对TSP问题的特点添加任何的启发规则，完全依靠人工鱼群算法对解空间的寻优能力，可见，人工鱼群算法具有较快的收敛速度，但是随着问题规模的扩大，其寻优的精度会有所降低，这是有待改进的地方。}
+	
 \end{frame}
 
 \begin{frame}
