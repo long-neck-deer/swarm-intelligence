@@ -1,3 +1,13 @@
+
+\begin{frame}
+\newcommand{\song}{\setCJKfamilyfont{song}}
+\newcommand{\xiaoer}{\fontsize{18pt}{18pt}\selectfont}
+	\begin{center}
+	{\song\xiaoer\textbf{蚁群算法}}
+	\end{center}
+\end{frame}
+
+
 \begin{frame}
 	\frametitle{ACO背景}
 	蚁群优化算法（Ant Colony Optimizer，ACO）是一种模拟蚁群觅食行为的群聚智能算法，由Marco Dorigo等人在1991年提出。他们根据蚁群通过分泌信息素来交流觅食信息从而能快速的找到目标这一现象，提出了基于信息正反馈原理的蚁群算法。蚁群算法最初用来解决最短路径问题，现在也渐渐应用到了其他领域中。蚁群算法参数较少，设置简单，有很大的改进空间，易于应用到其他组合优化问题中，但同时蚁群算法也有收敛速度慢、易陷入局部最优的缺点。
@@ -19,9 +29,6 @@
 				\centering
 				\includegraphics[width=8cm]{pic/ant1.png}
 				\caption{蚂蚁觅食}
-	et
-
-
 		\end{figure}
 	\end{columns}	
 \end{frame}
@@ -50,16 +57,21 @@
 \begin{frame}
 	\frametitle{ACO算法原理-概率转移准则}
 	蚂蚁k在城市r上，选择向下一个城市s移动的概率是：
-	\begin{figure}[htbp]
-		\centering
-		\includegraphics{pic/ant3.jpg}
-		\caption{转移公式}
-	\end{figure}
+	\Large{
+	$$
+	P_k(r,s) =
+		\begin{cases}
+		\frac{\tau (r,s) \centerdot \eta (r,s)^\beta}{\sum_{u \subset J_{k(r)}} \tau (r,u)\centerdot \eta (r,u)^\beta}  & \text{$,if\quad s \subset J_{k(r)}$ } \\
+		0 & \text{$,otherwise$}
+		\end{cases}
+	$$}
+	\normalsize{
 	\begin{itemize}
 			\item{$J_k(r) = \{ C-tabu_k \}$ 表示蚂蚁下一步可选择的城市}
 			\item{$\eta = 1/d$ 启发函数}
 			\item{$\beta(\beta>0)$调参数，决定了$\tau$和$\eta$之间的权重}
 		\end{itemize}
+	}
 \end{frame}
 
 
@@ -82,8 +94,8 @@
 	$$ where\quad
 	\Delta\tau(r,s) =
 	\begin{cases}
-	(L_{gb}^{-1}),  & \text{$if\quad (r,s) \subset global\quad best\quad tour$ } \\
-	0, & \text{$otherwise$}
+	(L_{gb}^{-1})  & \text{$,if\quad (r,s) \subset global\quad best\quad tour$ } \\
+	0 & \text{$,otherwise$}
 	\end{cases}
 	$$
 	\begin{itemize}
@@ -95,11 +107,20 @@
 
 \begin{frame}
 	\frametitle{ACO算法原理}
-	\begin{figure}[htbp]
-		\centering
-		\includegraphics[width=13cm]{pic/ant4.png}
-		\caption{TSP问题}
-	\end{figure}
+	\begin{algorithm}[H]
+	\caption{ACO}\label{wolf_alg}
+	\algsetup{linenosize=\tiny} \scriptsize
+		\begin{algorithmic}
+			\STATE{Initialize}
+			\STATE{\textbf{Loop /* at this level each loop is called an iteration */}}
+				\STATE{$\qquad$Each ant is positioned on a starting node}
+				\STATE{\textbf{$\qquad$Loop /* at this level each loop is called a step */}}
+					\STATE{$\qquad\qquad$Each ant applies a state transition rule to incrementally build a solution and a local pheromone updating rule}
+				\STATE{$\qquad$\textbf{Until} all ants have build a complete solution}
+				\STATE{$\qquad$A global pheromone updating rule is applied}
+			\STATE{\textbf{Until} End conditon}
+		\end{algorithmic}
+	\end{algorithm}
 \end{frame}
 
 
@@ -207,15 +228,19 @@
 \begin{frame}
 	\frametitle{ACO的其他应用-图着色优化问题}
 	概率转移准则：
-	\begin{figure}[htbp]
-		\centering
-		\includegraphics[width=10cm]{pic/ant7.jpg}
-	\end{figure}
-
+	\Large{
+	$$
+	P_k(i,j) =
+		\begin{cases}
+		\frac{\tau (i,j)^\alpha \centerdot \eta ((i,j)^\beta}{\sum \tau (i,j)^\alpha \centerdot \eta (i,j)^\beta}  & \text{$,if\quad c_j \subset allowed_i^k$ } \\
+		0 & \text{$,otherwise$}
+		\end{cases}
+	$$}
+	\normalsize{
 	\begin{itemize}
 		\item {$allowed_i^k$表示蚂蚁$k$给$v_i$着色时在已着色集中的可行着色集}
 		\item {若$allowed_i^k$不为空集，则由转移准则给出$v_i$ 着$c_j$ 色的概率}
 		\item {若$allowed_i^k$为空集，则$Num_c= Num_c+1$，并给$v_i$着$c_{Num_c}$色，再把$c_{Num_c}$色放入已着色集中}
 	\end{itemize}
-
+	}
 \end{frame}
