@@ -1,4 +1,3 @@
-
 \begin{frame}
 \newcommand{\song}{\setCJKfamilyfont{song}}
 \newcommand{\xiaoer}{\fontsize{18pt}{18pt}\selectfont}
@@ -21,7 +20,7 @@
 \begin{frame}
 	\frametitle{算法背景}
 	\begin{itemize}
-		\item{提出者:李晓磊，2002年}
+		\item{提出者:李晓磊等，2002年}
 		\item{提出背景：随着人工智能和人工生命的兴起，出现了一些仿生算法，包括蚁群算法和粒子群算法等。将人工智能的思想应用于问题的寻优，实施一些高级的计算方法。应用动物自治体的模式来定义实体，让他们在问题空间中自主的活动，从而达到解决问题的目的。}
 	\end{itemize}
 \end{frame}
@@ -171,7 +170,25 @@
 		\end{algorithmic}
 	\end{algorithm}
 \end{frame}
-
+\begin{frame}
+	\frametitle{各参数对计算时间的影响}
+	\begin{figure}
+		\includegraphics[width=0.8\textwidth]{pic/fish6.png}
+	\end{figure}
+\end{frame}
+\begin{frame}
+	\begin{columns}
+	\column{0.65\textwidth}
+	\begin{figure}
+		\includegraphics[width=1.0\textwidth]{pic/fish7.png}
+	\end{figure}
+	\column{0.35\textwidth}
+	\begin{figure}
+		\flushleft
+		\includegraphics[width=1.0\textwidth]{pic/fish8.png}
+	\end{figure}
+	\end{columns}
+\end{frame}
 \begin{frame}
 	\frametitle{算法特点}
 	\begin{itemize}
@@ -183,19 +200,29 @@
 	\end{itemize}
 \end{frame}
 \begin{frame}
-	\frametitle{算法应用}	
-	\begin{itemize}
-		\item{组合优化问题}
-		\item{计算实例}
-		\item{算法改进}
-		\item{参数估计}
-		\item{系统辨识}
-	\end{itemize}
+	\frametitle{算法应用——旅行商问题}	
+	\small{数据来源：http://www.uni-heidelberg.de/iwr/comopt/software/TSPLIB95/;}
+	\begin{columns}
+	\column{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\textwidth]{pic/fish4.png}
+			\caption{Ulysses 22 城市TSP问题的寻优曲线}
+		\end{figure}
+	\column{0.5\textwidth}
+		\begin{figure}
+			\centering
+			\includegraphics[width=0.8\textwidth]{pic/fish5.png}
+			\caption{Att48 城市TSP问题的寻优曲线}
+		\end{figure}
+	\end{columns}
+	\small{在仿真实验中，为了反映算法对组合优化问题的解决能力，没有针对TSP问题的特点添加任何的启发规则，完全依靠人工鱼群算法对解空间的寻优能力，可见，人工鱼群算法具有较快的收敛速度，但是随着问题规模的扩大，其寻优的精度会有所降低，这是有待改进的地方。}
+	
 \end{frame}
 
 \begin{frame}
 	\frametitle{参考文献}
-	\begin{thebibliography}{123456} 
+	\begin{thebibliography}{123} 
 	\bibitem{fish_bib1} 李晓磊,邵之江,钱积新.一种基于动物自治体的寻优模式:鱼群算法[J].系统工程理论与实践,2002,22(11):32 －38.
 	\bibitem{fish_bib2} 李晓磊.一种新到的智能优化方法———人工鱼群算法[D].杭州:浙江大学,2003．
 	\bibitem{fish_bib3}李晓磊,钱积新.基于分解协调的人工鱼群优化算法研究[J].电路与系统学报,2003,8(1) : 1 －6.
