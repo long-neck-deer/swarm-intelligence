@@ -164,12 +164,12 @@
 %		\scriptsize{\emph{float Aritificial\underline{\hspace{0.5em}}fish::AF\underline{\hspace{0.5em}}prey()\\{\{}\\{\hspace{2em} for($i=0;i<try\underline{\hspace{0.5em}}number;i++)$}\\{\hspace{2em} \{}\\{\hspace{4em}  $X_j=X_i+Rand()·Visual;$}\\{\hspace{4em}   if $(Y_i<Y_j)$}\\{\hspace{6em}  $X_{i|next}=X_i+Rand()·Step·(X_j-X_i)/\lVert X_j-X_i\rVert;$}\\{\hspace{4em}  else}\\{\hspace{6em}    $X_{i|next}=X_i+Rand()·Step;$}\\{\hspace{2em} \}}\\{ return $AF\underline{\hspace{0.5em}}foodconsistence(X_{i|next});$} \\{\}} }}	\\
 		\small{觅食行为}
 			\flushleft\scriptsize{\emph{float Aritificial\underline{\hspace{0.5em}}fish::AF\underline{\hspace{0.5em}}prey()\\{\{}\\{\qquad for($i=0;i<try\underline{\hspace{0.5em}}number;i++)$}\\{\qquad\{}\\{\qquad\qquad$X_j=X_i+Rand()·Visual;$}\\{\qquad\qquad if $(Y_i<Y_j)$}\\{\qquad\qquad\qquad $X_{i|next}=X_i+Rand()·Step·(X_j-X_i)/\lVert X_j-X_i\rVert;$}\\{\qquad\qquad else}\\{\qquad\qquad\qquad $X_{i|next}=X_i+Rand()·Step;$}\\{\qquad\}}\\{ return $AF\underline{\hspace{0.5em}}foodconsistence(X_{i|next});$} \\{\}} }}\\
-		\small{聚群行为}\vspace{3ex}
+		\small{聚群行为}
 			\flushleft\scriptsize{\emph{float Aritificial\underline{\hspace{0.5em}}fish::AF\underline{\hspace{0.5em}}swarm() \\ {\{} \\ {\qquad $n_f=0;X_c=0$} \\ {\qquad for($j=0;i<friend\underline{\hspace{0.5em}}number;j++)$} \\ {\qquad\qquad $if(d_{i.j}<Visual) \{ n_f++;X_c+=X_j;\}$} \\ {\qquad $X_c=X_c/n_f;$}\\{\qquad $if (Y_c/n_f>\delta Y_i)$}\\{\qquad\qquad $X_{i|next}=X_i+Rand()·Step·(X_c-X_i)/\lVert X_c-X_i\rVert;$}\\{\qquad else}\\{\qquad\qquad AF\underline{\hspace{0.5em}}prey();}\\{ return $AF\underline{\hspace{0.5em}}foodconsistence(X_{i|next});$} \\{\}} }}\\
-		\small{追尾行为}\vspace{3ex}\\
+		\small{追尾行为}
 			\flushleft\scriptsize{\emph{float Aritificial\underline{\hspace{0.5em}}fish::AF\underline{\hspace{0.5em}}follow() \\ {\{} \\ {\qquad $Y_max=-\infty;$} \\ {\qquad for($j=0;i<friend\underline{\hspace{0.5em}}number;j++)$} \\ {\qquad\qquad $if(d_{i,j}<Visual \&\& Y_j>Y_max)$} \\ {\qquad\qquad\qquad $\{ Y_max=Y_j; X_max=X_j; \}$ }\\{\qquad $n_f=0$}\\{\qquad for($j=0;i<friend\underline{\hspace{0.5em}}number;j++)$}\\{\qquad\qquad $if(d_{max,j}<Visual) \{ n_f++;\} $}\\{\qquad $if (Y_max/n_f>\delta Y_i)$}\\{\qquad\qquad $X_{i|next}=X_i+Rand()·Step·(X_max-X_i)/\lVert X_max-X_i\rVert;$}\\{\qquad else}\\{\qquad\qquad AF\underline{\hspace{0.5em}}prey();}\\{ return $AF\underline{\hspace{0.5em}}foodconsistence(X_{i|next});$} \\{\}} }}\\
-		\small{随机行为}\vspace{3ex}\\
-		\vspace{6ex}随机行为的实现即在视野中随机选择一个状态，然后向该方向移动，实际上就是觅食行为的一个缺省行为。
+		\small{随机行为}
+		随机行为的实现即在视野中随机选择一个状态，然后向该方向移动，实际上就是觅食行为的一个缺省行为。
 	\end{subsection}
 	\begin{subsection}{算法描述}
 	每个人工鱼探索它的环境状况（包括目标函数的变化情况和伙伴的变化情况），从而选择一种行为\\最终，人工鱼集结在几个局部极值的周围\\一般情况下，在讨论求极大问题时，拥有较大的$AF\underline{\hspace{0.5em}}foodconsistence$值的人工鱼一般处于值较大的极值域周围\\这有助于获取全局极值域，而值较大的极值区域周围一般能集结较多的人工鱼，这有助于判断并获取全局极值。
