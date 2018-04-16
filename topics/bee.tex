@@ -8,7 +8,8 @@
 
 \begin{frame}
   \frametitle{ABC算法背景}
-	\qquad 人工蜂群算法（Attificial Bee Colony，ABC）算法是由土耳其学者Karaboga于2005年提出，其基本思想是启发 	 	于蜂	群通过个体分工和信息交流，相互协作完成采蜜任务。与传统的优化方法相比，它的主要优点是不需要了解问    	题的特殊信息，只需要对解进行优劣比较，通过人工蜂群个体的局部寻优行为，最终在群体中使得全局最优值	 	凸现出来，具有较快的收敛速度。
+	\qquad 人工蜂群算法（Attificial Bee Colony，ABC）是由土耳其学者Karaboga于2005年提出，其基本思想是启发 	 	于蜂	群通过个体分工和信息交流，相互协作完成采蜜任务。与传统的优化方法相比，它的主要优点是不需要了解问    	题的特殊信息，只需要对问题进行优劣比较，通过人工蜂群个体的局部寻优行为，最终在群体中使得全局最优值	 	凸现出来，具有较快的收敛速度。但同时也存在以下问题：ABC算法存在“早熟”的收敛性缺陷，即在接近全局最优解时，已陷入局部最优。
+
 \end{frame}
 
 \begin{frame}
@@ -226,6 +227,58 @@
 	\end{algorithm}
 \end{frame}
 
+\begin{frame}
+	\frametitle{比较}
+	\begin{table}[!htbp]
+		\centering
+		\caption{Numerical benchmark function}
+		\label{my-label}
+		\begin{tabular}{|c|c|c|cc}
+		\cline{1-2}
+		Name     		& function  														& range 		&  &  \\ \cline{1-3}
+		Sphere函数 		& $f_{1}(x)= \sum_{i=1}^d x_{i}^2 $     							& [-100,100]	&  &\\ \cline{1-3}
+		Rosenbrock函数	& $f_{2}(x)= \sum_{i=1}^d (100(x_{i+1}-x_{i}^2)^2 + (x_{i} - 1)^2 ) $ 	& [-30,30] 		&  &  \\ \cline{1-3}
+		Griewank函数    	& $f_{3}(x)= \frac{1}{4000} \sum_{i=1}^d x_{i}^2 -  \prod_{i=1}^d cos(\frac{x_{i}}{\sqrt{i}}) + 1 $   	& [-600,600]	&  &  \\ \cline{1-3}
+		Rastrigin函数   	& $f_{4}(x)=\sum_{i=1}^d (x_{i}^2 - 10cos(2   \pi 2 x_{i} + 10)$     	& [-5.12,5.12] 	&  &  \\ \cline{1-3}
+		\end{tabular}
+	\end{table}
+
+	其中函数 $ f_{1}(x) $是单峰函数; 函数 $ f_{2}(x) $ 是很难极小化的病态函数; 函数 $ f_{3}(x) $, $ f_{4}(x) $都是具有大量局部最优点的多峰函数，
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{比较}
+
+	\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=1.0\textwidth]{pic/bee10.png}
+			\caption{四种算法运行平均最优值比较}
+			\label{fig:pt3}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{比较}
+
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[width=0.4\textwidth]{pic/bee11.png}
+			\caption{四种算法测试最小数随迭代次数的变化过程曲线}
+			\label{fig:pt4}
+		\end{figure}
+
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{改进}
+	\begin{itemize}
+		\item {基于混沌鲶鱼效应的人工蜂群算法：一方面通过使用混沌映射的方法替代原来的一般随机化初始蜜源过程；另一方面，将鲶鱼效应施加到蜜蜂种群内，并以混沌波动的方式衍生出一种新型的混沌鲶鱼蜂，用来替代原侦查蜂负责搜索新蜜源的任务，且同原蜂群个体之间形成了有效的竞争、协作机制}
+		\item {搜索机制的改进：采用局部随机搜索算子对当前最优蜜源进行局部搜索，以加快搜索速度，同时利用基于排序的选择概率替代原算法中直接利用适应度计算的概率，来保证解的多样性。}
+	\end{itemize}
+\end{frame}
 
 
 \begin{frame}
@@ -241,6 +294,7 @@
 	\end{figure}
 	\end{columns}
 \end{frame}
+
 
 \begin{frame}
 	\frametitle{TSP问题}
@@ -317,10 +371,12 @@
 \begin{frame}
 	\frametitle{参考文献}
 	\begin{thebibliography}{123456} 
-	\bibitem{fish_bib1} 何尧,刘建华,杨荣华.人工蜂群算法研究综述[J/OL].计算机应用研究,2018(05):1-8
-	\bibitem{fish_bib2} 陈阿慧,李艳娟,郭继峰.人工蜂群算法综述[J].智能计算机与应用,2014,4(06):20-24
-	\bibitem{fish_bib3} Karaboga D. An idea based on honey bee swarm for numerical optimization[R]. Technical report-tr06, Erciyes university, engineering faculty, computer engineering department, 2005.
-	\bibitem{fish_bib4} 黄秋菀,王志刚,夏慧明.求解旅行商问题的人工蜂群算法[J].价值工程,2013,32(09):206-207.
-	\bibitem{fish_bib5} 魏超.应用人工蜂群算法求解旅行商问题[J].科技视界,2014(19):142-143.
+	\bibitem{bee_bib1} 何尧,刘建华,杨荣华.人工蜂群算法研究综述[J/OL].计算机应用研究,2018(05):1-8
+	\bibitem{bee_bib2} 陈阿慧,李艳娟,郭继峰.人工蜂群算法综述[J].智能计算机与应用,2014,4(06):20-24
+	\bibitem{bee_bib3} Karaboga D. An idea based on honey bee swarm for numerical optimization[R]. Technical report-tr06, Erciyes university, engineering faculty, computer engineering department, 2005.
+	\bibitem{bee_bib4} 王慧.人工蜂群算法的性能比较研究[J].河北工程技术高等专科学校学报,2015(01):41-44.
+	\bibitem{bee_bib5} 王生生,杨娟娟,柴胜.基于混沌鲶鱼效应的人工蜂群算法及应用[J].电子学报,2014,42(09):1731-1737.
+	\bibitem{bee_bib6} 黄秋菀, 王志刚, 夏慧明. 求解旅行商问题的人工蜂群算法 [J]. 价值工程,2013,32(09):206-207
+	
 	\end{thebibliography}
 \end{frame}
